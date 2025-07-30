@@ -3,11 +3,12 @@ import { useNavigate } from "react-router-dom";
 
 function Login() {
   const [email, setEmail] = useState("");
+  const [name, setName] = useState("");
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
 
   function LoginAPI() {
-    fetch("http://localhost:5001/api/auth/login", {
+    fetch("http://localhost:5000/api/auth/login", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ email, password }),
@@ -51,6 +52,10 @@ function Login() {
   return (
     <div>
       <h2>Login</h2>
+      <input type="name" 
+      placeholder="Enter your Name"
+      onChange={(e) => setName(e.target.value)}
+      />
       <input
         placeholder="Email"
         type="email"
